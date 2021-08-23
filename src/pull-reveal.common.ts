@@ -1,12 +1,12 @@
-import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout';
-import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout';
-import { Label } from 'tns-core-modules/ui/label';
-import { PercentLength } from 'tns-core-modules/ui/styling/style-properties';
-import { GestureTypes, GestureStateTypes, PanGestureEventData } from "tns-core-modules/ui/gestures";
-import { EventData } from 'tns-core-modules/data/observable';
-import { screen } from 'tns-core-modules/platform';
+import { StackLayout } from '@nativescript/core/ui/layouts/stack-layout';
+import { GridLayout } from '@nativescript/core/ui/layouts/grid-layout';
+import { Label } from '@nativescript/core/ui/label';
+import { PercentLength } from '@nativescript/core/ui/styling/style-properties';
+import { GestureTypes, GestureStateTypes, PanGestureEventData } from "@nativescript/core/ui/gestures";
+import { EventData } from '@nativescript/core/data/observable';
+import { Screen } from '@nativescript/core/platform';
 import anim = android.R.anim;
-const scale = screen.mainScreen.scale;
+const scale = Screen.mainScreen.scale;
 
 /**
  * Defines the GridLayout wrapper that must hold the page content
@@ -139,7 +139,7 @@ export class CommonContents extends StackLayout {
     let cheight = this.computeHeight(this);
     let cwcheight = this.computeHeight(wrapper) - cheight;
     let scheight = mheight / scale;
-    const screenHeight = screen.mainScreen.heightDIPs;
+    const screenHeight = Screen.mainScreen.heightDIPs;
 
 
     const currentY = this.getLocationOnScreen().y;

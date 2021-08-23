@@ -1,5 +1,4 @@
-import { EventData } from 'tns-core-modules/data/observable';
-import { Page, NavigatedData } from 'tns-core-modules/ui/page';
+import { EventData, NavigatedData, Page } from '@nativescript/core';
 
 
 let page;
