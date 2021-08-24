@@ -22,7 +22,7 @@
 ###### iOS
 ![demo video](ios-show1.gif)|
 
-#### (buggy on iOS) 
+#### (buggy on iOS)
 For reasons not fully understood, the iOS version displays odd and inconsistent behaviors.
 These problems include:
 - The drawer placement may begin off screen, making it unreachable
@@ -47,9 +47,9 @@ To get started, install the plugin, per normal methods:
 tns plugin add nativescript-pull-reveal
 ```
 
-## Usage 
+## Usage
 
-Although a Pull Reveal drawer can be added via code alone, the 
+Although a Pull Reveal drawer can be added via code alone, the
 more common approach would be to declare it in XML and optionally
 communicate with it from the page code, like most other Nativescript
 components.
@@ -59,7 +59,7 @@ components.
 There are two components to declare in order to set up a
 Pull Reveal component.
 For the page you wish to include the PullReveal component, you
-must first import the namespace for the control in the Page declaration, 
+must first import the namespace for the control in the Page declaration,
 like this:
 
 ```xml
@@ -70,10 +70,10 @@ like this:
 >
 ```
 This set the prefix `pr` as a reference to the PullReveal plugin module.
-You can use any legal namespace variable name here, but `pr` is used 
+You can use any legal namespace variable name here, but `pr` is used
 throughout these examples.
 
-There are two components in the Pull Reveal module you need to 
+There are two components in the Pull Reveal module you need to
 set up in order to stage a Pull Reveal component to your page.
 
 First, you must declare an enclosing containter as a `PullRevealContext`.
@@ -83,27 +83,27 @@ page, and encompassing your page layout.
 For example, suppose your non-pull-reveal-enhanced page looks like this:
 
 ```xml
-    <StackLayout> 
+    <StackLayout>
         <Image src="~/images/happyface.png"/>
         <Label text="Here is some content"/>
     </StackLayout>
-``` 
+```
 then you want to wrap it as follows:
 
 ```xml
-    <pr:PullRevealContext> 
-        <StackLayout> 
+    <pr:PullRevealContext>
+        <StackLayout>
             <Image src="~/images/happyface.png"/>
             <Label text="Here is some content"/>
         </StackLayout>
     </pr:PullRevealContext>
-``` 
-Finally, we need to create the PullReveal Drawer itself and 
+```
+Finally, we need to create the PullReveal Drawer itself and
 populate its content:
 
 ```xml
-    <pr:PullRevealContext> 
-        <StackLayout> 
+    <pr:PullRevealContext>
+        <StackLayout>
             <Image src="~/images/happyface.png"/>
             <Label text="Here is some content"/>
         </StackLayout>
@@ -128,7 +128,7 @@ from the bottom.
 This defines the 'grabble' part of the component.  You may wish to style your drawer appearance to present an
 appropriate looking 'handle', but this is of course optional.
 
-Standard properties for layout containers may also be used.  
+Standard properties for layout containers may also be used.
 Styling options may of course also be applied via CSS classes, like other Nativescript components.
 
 ### Code
@@ -136,11 +136,11 @@ Styling options may of course also be applied via CSS classes, like other Native
 You may prefer to populate the child tree of the Pull Reveal content
 via code, particularly if your content is highly dynamic.
 
-One example of this is to have an empty PullReveal declared in 
+One example of this is to have an empty PullReveal declared in
 the xml markup:
 ```xml
-    <pr:PullRevealContext> 
-        <StackLayout> 
+    <pr:PullRevealContext>
+        <StackLayout>
             <Image src="~/images/happyface.png"/>
             <Label text="Here is some content"/>
         </StackLayout>
@@ -165,7 +165,7 @@ The plugin demo app shows this feature via the "add/remove foobar lines" option.
 adds or removes child elements to the drawer.
 
 
-#### Programatically opening and closing 
+#### Programatically opening and closing
 
 The `open()` and `close()` methods may be called by hendlers
 to control the behavior of the drawer during actions.
@@ -184,7 +184,7 @@ export function handleSetting (args) {
     pullDrawer.close()
 }
 ```
-The `close()` function without parameters will close the 
+The `close()` function without parameters will close the
 drawer immediately, with no animation.
 However, you can pass an optional parameter containing the
 number of milliseconds over which the door should animate closed.
@@ -195,7 +195,7 @@ open the PullReveal drawer. Like the `close()` method, it also
 will accept an optional parameter of milliseconds over which to animate
 the opening of the drawer.
 
-This effect may be nice to use as a notification vehicle for various forms of 
+This effect may be nice to use as a notification vehicle for various forms of
 information to be presented to a user in certain types of applications.
 
 The plugin demo app shows this feature in the "Auto Open and Close" example.
@@ -207,18 +207,18 @@ The plugin demo app shows this feature in the "Auto Open and Close" example.
 
 `PullRevealContext` inherits from [`GridLayout`](https://docs.nativescript.org/api-reference/classes/_ui_layouts_grid_layout_.gridlayout)  and so has all of the
 characteristics of that class.  It is used to provide a parallel context in the page
-in which the Pull Reveal drawer can slide over the content.  
+in which the Pull Reveal drawer can slide over the content.
 
 `PullRevealDrawer` inherits from [`StackLayout`](https://docs.nativescript.org/api-reference/modules/_ui_layouts_stack_layout_)  and so has all of the
 characteristics of that class.  It is used as the parent container for the
 content that you add to it.
 
-`PullRevealDrawer` defines the following properties 
+`PullRevealDrawer` defines the following properties
 
 | Property | Default | Description |
 | --- | --- | --- |
 | `exposed` | '' | Optional specification of how much of the drawer should be revealed when closed (DIP width/height) |
-| `anchor` | 'bottom' | one of: 'top', 'bottom', 'left', 'right', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'. Defines the origin home position of the control. | 
+| `anchor` | 'bottom' | one of: 'top', 'bottom', 'left', 'right', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'. Defines the origin home position of the control. |
 
 and the following methods:
 
@@ -236,22 +236,22 @@ The plugin itself does not provide any CSS values.
 ## Known Issues
 
 ###### Very first 1.0.0 version was garbage
-Don't use the 1.0.0 version, as it was, at best, a failed but inspirational prototype.  It suffered several 
+Don't use the 1.0.0 version, as it was, at best, a failed but inspirational prototype.  It suffered several
 structural failings and only worked in a limited set of contexts.
 
 Version 1.1.0 is a completely re-written approach.
- 
+
 ###### Problems with iOS!
-Version 1.1.0 still has issues though, with inconsistencies on iOS.  
+Version 1.1.0 still has issues though, with inconsistencies on iOS.
 The gist of these problems are listed above, and on the [GitHub issues page](https://github.com/tremho/nativescript-pull-reveal/issues).
 
 ###### orientation response
-The current version 1.1.0 does not respond properly to an orientation change.    
+The current version 1.1.0 does not respond properly to an orientation change.
 
 ###### Version 1.0.0
 - Found to be very buggy outside of limited demo context
 - version 1.0.1 addressed some issues, but ultimately was not a fix.
-- Scrapped the approach and started over for 1.1.0    
+- Scrapped the approach and started over for 1.1.0
 
 ###### Version 1.1.0
 - Working nicely on Android
@@ -261,7 +261,7 @@ The current version 1.1.0 does not respond properly to an orientation change.
 - The same as Version 1.1.0, but upversioned to fix a failed NPM publish.
 
 ----------
-  
+
 ## Source code and Contributing
 
 The source for this package is maintained on GitHub at:
@@ -271,12 +271,18 @@ Structure of the project is based on the templates generated
 with the [Nativescript Plugin Seed](https://docs.nativescript.org/plugins/building-plugins#the-nativescript-plugin-seed) project.
 
 Comments and contributions welcome!
-Please submit your Pull Requests, with as much explanation and examples you can provide to 
+Please submit your Pull Requests, with as much explanation and examples you can provide to
 support your changes.
 
 Outstanding issues and requests for help are listed here: https://github.com/tremho/nativescript-pull-reveal/issues
 
 Or, feel free to email me at `steve@ohmert.com` to start
 a discussion for other suggestions.
- 
- 
+
+ ## Building tgz file
+
+1) `cd src/`
+2) `npm run build`
+3) `cd ../publish/`
+4) `./pack.sh`
+5) copy file to your project and install it

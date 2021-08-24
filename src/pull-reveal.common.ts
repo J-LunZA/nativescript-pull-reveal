@@ -5,7 +5,6 @@ import { PercentLength } from '@nativescript/core/ui/styling/style-properties';
 import { GestureTypes, GestureStateTypes, PanGestureEventData } from "@nativescript/core/ui/gestures";
 import { EventData } from '@nativescript/core/data/observable';
 import { Screen } from '@nativescript/core/platform';
-import anim = android.R.anim;
 const scale = Screen.mainScreen.scale;
 
 /**
@@ -13,6 +12,9 @@ const scale = Screen.mainScreen.scale;
  */
 export class CommonWrapper extends GridLayout {
   // a grid is used to allow full-range overlay
+  constructor() {
+    super();
+  }
 }
 
 /**
@@ -128,8 +130,8 @@ export class CommonContents extends StackLayout {
   }
 
   public calcExtents () {
-    // get the measurements we need
     const wrapper = this.parent as GridLayout;
+
     this.wpheight = wrapper.getMeasuredHeight() / scale;
     this.wpwidth = wrapper.getMeasuredWidth() / scale;
 
